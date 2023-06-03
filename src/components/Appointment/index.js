@@ -3,16 +3,20 @@ import Header from 'components/Appointment/Header';
 import Empty from 'components/Appointment/Empty';
 import Show from 'components/Appointment/Show';
 import Form from 'components/Appointment/Form';
+import Confirm from 'components/Appointment/Confirm';
+import Status from 'components/Appointment/Status';
 import useVisualMode from 'hooks/useVisualMode';
-
+import Error from 'components/Appointment/Error';
 import './styles.scss';
-
-import Status from 'components/Appointment/Status'; // Import Status component at the top
 
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
 const SAVING = "SAVING"; 
+const DELETING = "DELETING";
+const CONFIRM = "CONFIRM";
+const ERROR_DELETE = "ERROR_DELETE";
+
 
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
@@ -37,14 +41,26 @@ export default function Appointment(props) {
         <Show
           student={props.interview.student}
           interviewer={props.interview.interviewer}
-          onDelete={() => console.log('confirm')}
+          onDelete={() => transition(CONFIRM)}
           onEdit={() => console.log('edit')}
+          
         />
       )}
       {mode === CREATE && (
         <Form interviewers={props.interviewers} onSave={save} onCancel={() => back()} />
       )}
-      {mode === SAVING && <Status message="Saving" />} // Add new case for SAVING mode
+      {mode === SAVING && <Status message="Saving" />}
+      {mode === CONFIRM && <Confirm message="Are you sure you want to delete?" onConfirm={() => {
+        transition(DELETING);
+        props.cancelInterview(props.id)
+          .then(() => transition(EMPTY))
+          .catch(error => transition(ERROR_DELETE, true));
+      }} onCancel={() => back()} />}
+
+      {mode === DELETING && <Status message="Deleting" />}
+      {mode === ERROR_DELETE && <Error message="Could not delete appointment" onClose={() => back()} />}
+
     </article>
+
   );
 }
