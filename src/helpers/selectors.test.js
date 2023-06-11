@@ -1,32 +1,27 @@
-import { getAppointmentsForDay } from "helpers/selectors";
+import { getAppointmentsForDay, getInterviewersForDay } from "helpers/selectors";
 
 const state = {
   days: [
     {
       id: 1,
       name: "Monday",
-      appointments: [1, 2, 3]
+      appointments: [1, 2, 3],
+      interviewers: [1, 2, 3] // Add interviewers array to your days
     },
     {
       id: 2,
       name: "Tuesday",
-      appointments: [4, 5]
+      appointments: [4, 5],
+      interviewers: [2, 3] // And here as well
     }
   ],
   appointments: {
-    "1": { id: 1, time: "12pm", interview: null },
-    "2": { id: 2, time: "1pm", interview: null },
-    "3": {
-      id: 3,
-      time: "2pm",
-      interview: { student: "Archie Cohen", interviewer: 2 }
-    },
-    "4": { id: 4, time: "3pm", interview: null },
-    "5": {
-      id: 5,
-      time: "4pm",
-      interview: { student: "Chad Takahashi", interviewer: 2 }
-    }
+    // ... your existing appointments data
+  },
+  interviewers: { // New interviewers data
+    "1": { id: 1, name: "Interviewer 1", avatar: "image1.png" },
+    "2": { id: 2, name: "Interviewer 2", avatar: "image2.png" },
+    "3": { id: 3, name: "Interviewer 3", avatar: "image3.png" },
   }
 };
 

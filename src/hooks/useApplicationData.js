@@ -27,6 +27,19 @@ export default function useApplicationData() {
     }).catch(error => console.log(error));
   }, []);
 
+  const updateSpots = function(dayName, days, appointments) {
+    const day = days.find(d => d.name === dayName);
+  
+    const spots = day.appointments
+      .filter(id => appointments[id].interview === null)
+      .length;
+  
+    const newDay = { ...day, spots };
+    const newDays = days.map(d => d.name === dayName ? newDay : d);
+  
+    return newDays;
+  }
+
   const bookInterview = (id, interview) => {
     const appointment = {
       ...state.appointments[id],
@@ -39,12 +52,19 @@ export default function useApplicationData() {
     };
   
     return axios.put(`/api/appointments/${id}`, { interview })
-      .then(() => {
-        setState({
-          ...state,
-          appointments
-        });
+    .then(() => {
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      const days = updateSpots(state.day, state.days, appointments);
+
+      setState({
+        ...state,
+        appointments,
+        days
       });
+    });
   };
 
   const cancelInterview = (id) => {
@@ -59,16 +79,19 @@ export default function useApplicationData() {
     };
   
     return axios.delete(`/api/appointments/${id}`)
-      .then(() => {
-        setState({
-          ...state,
-          appointments
-        });
-      })
-      .catch(error => {
-        console.error(error);
-        throw error; // rethrow the error so that it will be caught in Appointment component
+    .then(() => {
+      const appointments = {
+        ...state.appointments,
+        [id]: appointment
+      };
+      const days = updateSpots(state.day, state.days, appointments);
+
+      setState({
+        ...state,
+        appointments,
+        days
       });
+    });
   };
 
   return { state, setDay, bookInterview, cancelInterview };
