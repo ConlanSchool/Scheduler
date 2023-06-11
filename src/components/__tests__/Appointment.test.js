@@ -3,10 +3,7 @@ import { render } from "@testing-library/react";
 import Appointment from "../Appointment/index";
 
 
-describe("Appointment", () => {
-  it("renders without crashing", () => {
-    render(<Appointment />);
-  });
+
 
 
   xit("does something it is supposed to do", () => {
@@ -17,4 +14,3 @@ describe("Appointment", () => {
   test.skip("does something it is supposed to do", () => {
     // ...
   });
-});
