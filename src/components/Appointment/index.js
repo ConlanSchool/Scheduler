@@ -9,6 +9,7 @@ import useVisualMode from 'hooks/useVisualMode';
 import Error from 'components/Appointment/Error';
 import './styles.scss';
 
+
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
