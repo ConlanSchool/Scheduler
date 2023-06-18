@@ -40,6 +40,18 @@
 │   │       ├── index.html
 │   │       └── index.js.html
 │   └── lcov.info
+├── cypress
+│   ├── fixtures
+│   │   └── example.json
+│   ├── integration
+│   │   ├── appointments.spec.js
+│   │   └── navigation.spec.js
+│   ├── plugins
+│   │   └── index.js
+│   └── support
+│       ├── commands.js
+│       └── index.js
+├── cypress.json
 ├── jsconfig.json
 ├── package-lock.json
 ├── package.json
@@ -107,4 +119,4 @@
 └── stories
     └── index.js
 
-19 directories, 88 files
+24 directories, 95 files
