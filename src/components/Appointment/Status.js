@@ -2,7 +2,7 @@ import React from 'react';
 
 const AppointmentStatus = (props) => {
   const { statusMessage } = props;
-
+  
   return (
     <main className="appointment__card appointment__card--status">
       <img

@@ -1,8 +1,6 @@
 import React, { Fragment } from 'react'
-
 import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
-
 import "index.scss";
 
 import DayListItem from "components/DayListItem";
@@ -19,8 +17,7 @@ import Confirm from 'components/Appointment/Confirm';
 import Status from 'components/Appointment/Status';
 import Error from 'components/Appointment/Error';
 
-
-
+//Stories
 storiesOf("Button", module)
   .addParameters({
     backgrounds: [{ name: "dark", value: "#222f3e", default: true }]
@@ -143,7 +140,6 @@ storiesOf("Button", module)
         onChange={action("setInterviewer")}
       />
     ));
-
 
   storiesOf('Appointment', module)
   .addParameters({

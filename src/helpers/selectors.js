@@ -1,16 +1,12 @@
 export function getAppointmentsForDay(state, day) {
-  // Find the day object in state.days
   const dayObj = state.days.find(d => d.name === day);
   
-  // If the day object doesn't exist return an empty array
   if (!dayObj) {
     return [];
   }
   
-  // Map the appointment ids to the appointment objects in state.appointments
   const appointments = dayObj.appointments.map(id => state.appointments[id.toString()]);
 
-  // Return the array of appointments
   return appointments;
 }
 

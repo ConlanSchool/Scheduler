@@ -9,7 +9,6 @@ import useVisualMode from 'hooks/useVisualMode';
 import Error from 'components/Appointment/Error';
 import './styles.scss';
 
-
 const EMPTY = "EMPTY";
 const SHOW = "SHOW";
 const CREATE = "CREATE";
@@ -19,8 +18,6 @@ const CONFIRM = "CONFIRM";
 const ERROR_SAVE = "ERROR_SAVE";
 const ERROR_DELETE = "ERROR_DELETE";
 const EDIT = "EDIT";
-
-
 
 export default function Appointment(props) {
   const { mode, transition, back } = useVisualMode(
@@ -45,9 +42,6 @@ export default function Appointment(props) {
       .then(() => transition(EMPTY))
       .catch(error => transition(ERROR_DELETE, true));
   };
-
-
-  
 
   return (
     <article className='appointment' data-testid='appointment'>
