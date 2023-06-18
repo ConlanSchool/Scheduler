@@ -1,6 +1,3 @@
-My apologies for that mistake. Here's the corrected README file:
-
-```markdown
 # Interview Scheduler
 
 The Interview Scheduler is a React-based web application that allows users to book, edit, and cancel student interviews. 
@@ -30,24 +27,17 @@ The project has a well-structured tree with a breakdown of files and directories
 
 First, clone the repository to your local machine:
 
-```
-git clone https://github.com/<Your Github Username>/interview-scheduler.git
-cd interview-scheduler
-```
+`git clone https://github.com/<Your Github Username>/interview-scheduler.git`
 
 Then, install dependencies with:
 
-```
-npm install
-```
+`npm install`
 
 ## Running Webpack Development Server
 
 Start the webpack development server with:
 
-```
-npm start
-```
+`npm start`
 
 The application will be served at `http://localhost:8000`.
 
@@ -55,9 +45,7 @@ The application will be served at `http://localhost:8000`.
 
 Run the Jest test framework with:
 
-```
-npm test
-```
+`npm test`
 
 This will run the unit tests in the application.
 
@@ -65,9 +53,7 @@ This will run the unit tests in the application.
 
 Start the Storybook visual testbed with:
 
-```
-npm run storybook
-```
+`npm run storybook`
 
 This will let you view and interact with your UI components in isolation.
 
@@ -75,9 +61,7 @@ This will let you view and interact with your UI components in isolation.
 
 Make sure the application server is running in test mode, then start Cypress with:
 
-```
-npm run cypress
-```
+`npm run cypress`
 
 This will run the end-to-end tests in the application.
 
@@ -90,6 +74,3 @@ This will run the end-to-end tests in the application.
 - Jest
 - Cypress
 - Storybook
-```
-
-This README file provides an overview of the project, its structure, and instructions on how to set up, run, and test the project.
