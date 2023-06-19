@@ -2,7 +2,15 @@
 
 The Interview Scheduler is a React-based web application that allows users to book, edit, and cancel student interviews. 
 
+![image](https://github.com/ConlanSchool/Scheduler/assets/121739541/39ff0c67-e942-4cb3-aaab-1ca7cd94ad25)
+
+![image](https://github.com/ConlanSchool/Scheduler/assets/121739541/aec922b3-d886-4982-8edc-c0643ff7c70c)
+
+![image](https://github.com/ConlanSchool/Scheduler/assets/121739541/7f9d6605-7c34-44dc-9c0b-76a47fd5197f)
+
+
 ## Features
+
 
 - Appointment slots from Monday to Friday
 - Create, edit, and delete interviews
